@@ -12,11 +12,6 @@ public:
   double i_error;
   double d_error;
 
-  /*
-  * Time
-  */
-  long double current_time;
-  long double last_time;
 
   /*
   * Coefficients
@@ -30,11 +25,6 @@ public:
   */
   
   double last_error;
-  double init_error;
-  double totoal_error;
-
-  double windup_guard;
-  double output;
 
 
   /*
