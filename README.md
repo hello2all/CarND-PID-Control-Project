@@ -3,6 +3,39 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 
+In this project a PID controller is implemented to control an autonomous vehicle to drive along the planned trajectory.
+
+## Implementation
+
+An simple PID controller is used to minimise cross track error (CTE), parameters are manually tuned losely according to twiddle algorithm. The final parameter for propotional, integral and derivative terms are 0.2, 0.004 and 4 respectively. Vehicle throttle was set at 0.3 constant.
+
+## Reflection
+
+### Explanations on P, I, D terms
+
+PID controller relies on its error terms to give output value. A simplified way to explain the functions of the P, I, D terms are listed below:
+
+P: "Fast". The proportional term produce proportional response to the error, the larger P term is, the faster controller push the system towards target value. However, P value too high could lead to overshoot and stuck in oscillation.
+
+I: "Accurate". The integral term penalise error accumulation, used to compensate system error.
+
+D: "Stable". The derivative term dampens oscilation and stablise system.
+
+### Parameter tuning
+
+Since it is difficult to automate parameter tuning with Udacity simulator, manual tuning is carried out to adjust the parameters. This is relative fast however the final parameter is unlikely to be optimal.
+
+The manual tuning losely follows twiddle algorithm. A general procedure is described below:
+
+1. Starting from P term, and I term set to a very small value. Experiment with various P terms
+
+2. If vehicle over react to feedback, decrease P value otherwise increase. Till vehicle drive relative smooth and less likely to oscilate on track.
+
+3. Tune D term to settle oscilation.
+
+4. Minor adjustment to I term.
+
+
 ## Dependencies
 
 * cmake >= 3.5
