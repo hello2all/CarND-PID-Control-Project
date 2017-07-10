@@ -21,6 +21,11 @@ void PID::UpdateError(double cte) {
   d_error = cte - last_error;
 
   last_error = cte;
+
+  output = -Kp * p_error - Ki * i_error - Kd * d_error;
+
+  if(output > 1.0) output = 1.0;
+  if(output < -1.0) output = -1.0;
 }
 
 void PID::Clear(){
@@ -32,12 +37,6 @@ void PID::Clear(){
 }
 
 double PID::TotalError() {
-
-  double steer = -Kp * p_error - Ki * i_error - Kd * d_error;
-
-  if(steer > 1.0) steer = 1.0;
-  if(steer < -1.0) steer = -1.0;
-
-  return steer;
+  return i_error;
 }
 

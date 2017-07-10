@@ -26,6 +26,11 @@ public:
   
   double last_error;
 
+  /*
+  * Errors
+  */
+  double output;
+
 
   /*
   * Constructor
